@@ -2,14 +2,8 @@
 
 set -e
 
-# Path definitions for ETSS-Perf-Sim (EPS)
-EPS_WORKSPACE=$(realpath $(dirname "${0}"))
-EPS_ETISS=${EPS_WORKSPACE}/etiss
-EPS_ETISS_BUILD=${EPS_ETISS}/build_dir
-export EPS_ETISS_INSTALLED=${EPS_ETISS_BUILD}/installed # exported as needed by CMake for simulator build
-EPS_ETISS_HOTFIX=${EPS_WORKSPACE}/etiss_hotfix
-EPS_ETISS_PLUGINS=${EPS_WORKSPACE}/etiss_plugins
-EPS_SIM=${EPS_WORKSPACE}/simulator
+# Get environmental variables
+. $(dirname "${0}")/.env
 
 # Setup ETISS
 echo ""
