@@ -18,3 +18,14 @@ To re-build ETISS, you can call:
 ## Usage
 
 Run the simulation with the `run_simulator.py` script. You can use the "-h" switch to get an overview of the scripts input arguments.
+
+## Version
+
+This is version v0.9.
+
+It is compatible with the following submodule versions:
+
+| Submodule | Version |
+| --------- | ------- |
+| ETISS     | WiP     |
+| SoftwareEvalLib | v1.0 |
