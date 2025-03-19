@@ -21,11 +21,11 @@ Run the simulation with the `run_simulator.py` script. You can use the "-h" swit
 
 ## Version
 
-This is version v0.9.
+This is version v0.10.
 
 It is compatible with the following submodule versions:
 
 | Submodule | Version |
 | --------- | ------- |
 | ETISS     | WiP     |
-| SoftwareEvalLib | v1.0 |
+| SoftwareEvalLib | v2.0 |
