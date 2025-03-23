@@ -6,12 +6,12 @@ import sys
 __xtext=0.94
 __ytext=0.96
 
-logy  = False;
-width = 1.0;
+logy  = False
+width = 1.0
 annotate = False
 
 # annotate maximum hit count
-def annot_max(xmax, ymax, text, ax=None):
+def annote_max(xmax, ymax, text, ax=None):
     global __xtext, __ytext
     if not annotate: return
     
@@ -58,7 +58,7 @@ for file_name in files:
     xmax = data.idxmax()
     ymax = data[xmax]
     print('max hits:', (xmax, ymax))
-    annot_max(xmax, ymax, text='idx={0:X}, hits={1}', ax=ax)
+    annote_max(xmax, ymax, text='idx={0:X}, hits={1}', ax=ax)
 
     ### plot evictions
     data = df['evictions']
@@ -71,7 +71,7 @@ for file_name in files:
     xmax = data.idxmax()
     ymax = data[xmax]
     print('max evictions:', (xmax, ymax))    
-    annot_max(xmax, ymax, text='idx={0:X}, evictions={1}', ax=ax)
+    annote_max(xmax, ymax, text='idx={0:X}, evictions={1}', ax=ax)
 
     ### mean line
     print('mean hits:', meanHits)
