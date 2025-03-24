@@ -24,7 +24,6 @@ def annote_max(xmax, ymax, text, ax=None):
             arrowprops=arrowprops, bbox=bbox_props, ha="right", va="top")
     ax.annotate(text, xy=(xmax, ymax), xytext=(__xtext, __ytext), **kw)
     __ytext -= 0.05
-    
 
 files = sys.argv[1:]
 if len(files) == 0: exit()
@@ -43,18 +42,18 @@ for file_name in files:
    
     xticks   = np.arange(15, len(indicies), 16)
     if len(xticks) == 0: 
-        xticks = np.arange(0, len(indicies), 1)   
-    xlabels = [str(indicies[i]) for i in xticks]    
+        xticks = np.arange(0, len(indicies), 1)
+    xlabels = [str(hex(indicies[i])[2:]) for i in xticks]
             
-    ### plot hits
-    data = df['hits']
+    ### plot total hits
+    data = df['total_hits']
     meanHits = data.mean()
     
     ax = df.plot(kind='bar', x=indicies.name, y=data.name, color='red', logy=logy, ax=ax, width=width)
     ax.set(xticks=xticks, xticklabels=xlabels)
     #ax.fill_between(x=df.index, y1=df.hits, y2=0, where=df.hits > 0, interpolate=True, color='pink')
 
-    # highlight max hits    
+    # highlight max hits
     xmax = data.idxmax()
     ymax = data[xmax]
     print('max hits:', (xmax, ymax))
