@@ -63,7 +63,10 @@ with pluginIni.open('w') as f:
     # Specify Assembly-TracePrinterPlugin
     if (asmTrace:=args.trace_asm) is not None:
         f.write("[Plugin TracePrinterPlugin]\n")
-        f.write("plugin.tracePrinter.trace=AssemblyTrace\n")
+        if args.core.upper() == "CV32E40P":
+            f.write("plugin.tracePrinter.trace=AssemblyTrace_RV32\n")
+        elif args.core.upper() == "CVA6":
+            f.write("plugin.tracePrinter.trace=AssemblyTrace_RV64\n")
         f.write("plugin.tracePrinter.stream.toFile=1\n")
         f.write("plugin.tracePrinter.stream.outDir=" + str(pathlib.Path(asmTrace).resolve()) + "\n")
         f.write("plugin.tracePrinter.stream.fileName=asm_trace\n")
@@ -72,9 +75,9 @@ with pluginIni.open('w') as f:
     elif (instrTrace:=args.trace_instr) is not None:
         f.write("[Plugin TracePrinterPlugin]\n")
         if args.core.upper() == "CVA6":
-            f.write("plugin.tracePrinter.trace=InstructionTrace_RV64\n")
-        else:
-            raise RuntimeError("No supported instruction-trace for this core!")
+            f.write("plugin.tracePrinter.trace=InstructionTrace_RV64IMF_Zicsr\n")
+        elif args.core.upper() == "CV32E40P":
+            f.write("plugin.tracePrinter.trace=InstructionTrace_RV32IM_Zicsr\n")
         f.write("plugin.tracePrinter.stream.toFile=1\n")
         f.write("plugin.tracePrinter.stream.outDir=" + str(pathlib.Path(instrTrace).resolve()) + "\n")
         f.write("plugin.tracePrinter.stream.fileName=instr_trace\n")
