@@ -72,7 +72,7 @@ with pluginIni.open('w') as f:
         f.write("plugin.tracePrinter.stream.toFile=1\n")
         f.write("plugin.tracePrinter.stream.outDir=" + str(pathlib.Path(asmTrace).resolve()) + "\n")
         f.write("plugin.tracePrinter.stream.fileName=asm_trace\n")
-        f.write("plugin.tracePrinter.stream.rotateSize=0x100000\n")
+        f.write("plugin.tracePrinter.stream.rotateSize=0x1000000\n")
     # Specify Instruction-TracePrinterPlugin
     elif (instrTrace:=args.trace_instr) is not None:
         f.write("[Plugin TracePrinterPlugin]\n")
